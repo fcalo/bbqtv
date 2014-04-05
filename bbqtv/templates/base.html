@@ -1,0 +1,73 @@
+{% block doc -%}
+<!DOCTYPE html>
+<html {% block html_attribs %}lang="es"{% endblock html_attribs %}>
+{%- block html %}
+  <head>
+    {%- block head %}
+    <title>{% block title %}{% endblock title %}</title>
+
+    {%- block metas %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%- endblock metas %}
+
+    {%- block styles %}
+    <!-- Bootstrap -->
+    <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+    {%- endblock styles %}
+    {%- endblock head %}
+  </head>
+  <body{% block body_attribs %}{% endblock body_attribs %}>
+    {% block body -%}
+    {% block navbar %}
+	<div id="navbar" class="navbar navbar-fixed-top navbar-default" role="navigation">
+		<div class="navbar-container" id="navbar-container">
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand" href="/">Logo</a>
+			</div>
+			
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  <ul class="nav navbar-nav navbar-right">
+				<li><a href="#" data-toggle="modal" data-target="#contact-modal"><span class="glyphicon glyphicon-envelope"></span> Contacto</a></li>
+			  </ul>
+			</div>
+			
+        </div>
+     </div>
+    {%- endblock navbar %}
+    <div id='main-container'>
+		{% block sidebar -%}
+			<div id="sidebar">
+				<ul class="nav nav-list">
+					<li>
+						<a href="#">
+						<i class="icon-dashboard"></i>
+						<span class="menu-text"> La 1 </span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		{%- endblock sidebar %}
+		<div id="main-content">
+		{% block content -%}
+		{%- endblock content %}
+		</div>
+    </div>
+    
+
+    {% block scripts %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    {%- endblock scripts %}
+    {%- endblock body %}
+  </body>
+{%- endblock html %}
+</html>
+{% endblock doc -%}

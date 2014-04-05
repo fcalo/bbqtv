@@ -1,5 +1,4 @@
 from flask import Flask
-import bbqtv.views
 
 def create_app(config_filename):
     app = Flask(__name__)
@@ -8,12 +7,7 @@ def create_app(config_filename):
     #~ from yourapplication.model import db
     #~ db.init_app(app)
 
-    #~ from yourapplication.views.admin import admin
-    #~ from yourapplication.views.frontend import frontend
-    #~ app.register_blueprint(admin)
-    #~ app.register_blueprint(frontend)
+    from bbqtv.blueprints.frontend import frontend
+    app.register_blueprint(frontend)
 
     return app
-
-
-

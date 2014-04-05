@@ -1,0 +1,7 @@
+#!/bin/bash
+cd bootstrap
+grunt dist
+cp dist/css/* ../bbqtv/static/css
+cp dist/js/* ../bbqtv/static/js
+cp dist/fonts/* ../bbqtv/static/fonts
+
