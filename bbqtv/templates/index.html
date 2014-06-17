@@ -3,10 +3,24 @@
 {{super()}}
 {% endblock %}
 {% block content %}
-<div class="container">
-  <h1>Hello, world!</h1>
+<div class="container-fluid">
+  <h1>Programación TV hoy</h1>
 
-  <h2>This is the sample form (basic)</h2>
+
+	<section id="examples" class="col-md10 snap-scrolling-example">
+		<div id="content-1" class="content horizontal-images">
+			{% for i in " "*5 %}
+				<div class="channel-line">
+					{% for i in " "*100 %}
+					<div class="item-channel-l1">item programación</div>
+					<div class="item-channel-l2">item programación</div>
+					<div class="item-channel-l2">item programación</div>
+					{% endfor %}
+				</div>
+			{% endfor %}
+		</div>
+		
+	</section>
 
 </div>
 {% endblock %}
