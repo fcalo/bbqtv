@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block head %}
+{{super()}}
+{% endblock %}
+{% block content %}
+<div class="container-fluid channel">
+	
+	<div class="row">
+		<div class="col-md-11"><h1>Programación {{ channel['name'] }} {{ "Hoy" if now else channel['date'].strftime('%d/%m/%Y') }}</h1></div>
+	</div>
+
+	{% for programme in channel['programmes'] %}
+		<div class="row channel-item">
+			<div class="col-md-1">
+				{{ programme['time'] }}
+			</div>
+			<div class="col-md-11">
+				<h2> {{ programme['title'] }} </h2><span class="label label-primary"> {{ programme['category'] }} </span>
+				<p> {{ programme['description'] }} </p>
+			</div>
+		</div>
+	{% endfor %}
+			
+	
+</div>
+{% endblock %}
+
+

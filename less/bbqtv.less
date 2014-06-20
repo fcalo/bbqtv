@@ -3,9 +3,10 @@
 #main-container{
 	margin-top:51px;
 	height:100%;
+	
 	#sidebar{
 		width:190px;
-		position:static;
+		position:absolute;
 		height:100%;
 		float:left;
 		background-color:@gray;
@@ -20,6 +21,31 @@
 	#main-content{
 		margin-left:190px;
 		position:static;
+		padding:20px;
+		h1{
+			margin-bottom:20px;
+		}
+		h2{
+			margin:0;
+			float:left;
+		}
+		span.label {
+			line-height: 40px;
+			margin: 20px 20px 0;
+		}
+		p{
+			clear:left;
+			margin-top:5px;
+		}
+		.channel{
+			.channel-item{
+				border-top:1px solid @gray-light;
+				padding:15px 0;
+			}
+			.channel-item:hover{
+				background-color:@gray-lighter;
+			}
+		}
 		.content{
 			overflow: auto;
 			position: relative;

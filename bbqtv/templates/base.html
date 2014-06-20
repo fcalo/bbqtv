@@ -4,11 +4,14 @@
 {%- block html %}
   <head>
     {%- block head %}
-    <title>{% block title %}{% endblock title %}</title>
+    <title>{{ g.title }}</title>
 
     {%- block metas %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="{{ g.keywords }}">
+	<meta name="description" content="{{ g.description }}">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {%- endblock metas %}
 
@@ -47,29 +50,11 @@
 		{% block sidebar -%}
 			<div id="sidebar">
 				<ul class="nav nav-list">
-					{% for i in " "*5 %}
+					{% for channel in channels %}
 						<li>
-							<a href="#">
+							<a href="/programacion/{{ channel['collection'] }}">
 							<i class="icon-dashboard"></i>
-							<span class="menu-text"> La 1 </span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-							<i class="icon-dashboard"></i>
-							<span class="menu-text"> La 2 </span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-							<i class="icon-dashboard"></i>
-							<span class="menu-text"> Antena 3 </span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-							<i class="icon-dashboard"></i>
-							<span class="menu-text"> Cuatro </span>
+							<span class="menu-text"> {{ channel['name'] }} </span>
 							</a>
 						</li>
 					{% endfor %}

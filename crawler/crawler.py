@@ -37,6 +37,8 @@ class Crawler(object):
 		#db
 		self.db = DB(self.config['database_host'], self.config['database_port'], self.config['database_name'])
 		
+		self.depp_days = self.config['depp_days']
+		
 		
 	def run(self):
 		
@@ -45,11 +47,14 @@ class Crawler(object):
 		for channel_url, channel_info in channels.items():
 			self.extract_channel(channel_url, channel_info)
 		
-	def extract_channel(self, channel_url, channel_info):
+	def extract_channel(self, channel_url, channel_info, next_day = 0, previous_day = 0 ):
 		
 		self.logger.info("[run] extrayendo canal de %s" % channel_url)
 		
-		self.tree = etree.fromstring(download_url(channel_url), self.parser)
+		try:
+			self.tree = etree.fromstring(download_url(channel_url), self.parser)
+		except AttributeError:
+			return False
 		
 		channel_data = {}
 		for key, info in channel_info.items():
@@ -68,13 +73,20 @@ class Crawler(object):
 					channel_data[key].append(item)
 			else:
 				
-				extract =  self.extract(info['xpath'])
-					
-				
+				try:
+					extract =  self.extract(info['xpath'])
+				except IndexError:
+					if (key == "next" and next_day > 0) \
+					  or (key == "previous" and previous_day > 0):
+						pass
+					else:
+						raise
+						
 				if "regex" in info:
 					extract = re.findall(info['regex'], extract)[0]
 				if "date_format" in info:
 					date = time.strptime(extract.strip(), info['date_format'])
+					
 					extract = datetime(date.tm_year, date.tm_mon, date.tm_mday)
 					if "add_days" in info:
 						extract += timedelta(days = info['add_days'])
@@ -82,10 +94,26 @@ class Crawler(object):
 				channel_data[key] = extract
 		
 		
+		
+			
+		if "next" in channel_data and previous_day == 0 and next_day < self.depp_days:
+			self.extract_channel(channel_data['next'], channel_info, next_day = next_day + 1 )
+
+		if "previous" in channel_data and next_day == 0 and previous_day < self.depp_days:
+			self.extract_channel(channel_data['previous'], channel_info, previous_day = previous_day + 1 )
+		
 		channel_name = channel_data['name']
 		del channel_data['name']
-		self.logger.info("[run] guardando datos para el canal %s" % channel_name)
+		del channel_data['next']
+		del channel_data['previous']
+		self.logger.info("[run] guardando datos para el canal %s (%s)" % (channel_name, channel_data['date']))
+		
+		if next_day == 0 and previous_day == 0:
+			self.db.save_channel(channel_name)
+		
 		self.db.save_data_day(channel_data, channel_name)
+		
+		
 			
 		
 	def extract_programme(self):

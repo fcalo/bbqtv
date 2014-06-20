@@ -5790,7 +5790,7 @@ button.close {
   margin-top: 51px;
 }
 #main-container #sidebar {
-  position: static;
+  position: absolute;
   float: left;
   width: 190px;
   height: 100%;
@@ -5803,7 +5803,30 @@ button.close {
 }
 #main-container #main-content {
   position: static;
+  padding: 20px;
   margin-left: 190px;
+}
+#main-container #main-content h1 {
+  margin-bottom: 20px;
+}
+#main-container #main-content h2 {
+  float: left;
+  margin: 0;
+}
+#main-container #main-content span.label {
+  margin: 20px 20px 0;
+  line-height: 40px;
+}
+#main-container #main-content p {
+  margin-top: 5px;
+  clear: left;
+}
+#main-container #main-content .channel .channel-item {
+  padding: 15px 0;
+  border-top: 1px solid #aea79f;
+}
+#main-container #main-content .channel .channel-item:hover {
+  background-color: #eee;
 }
 #main-container #main-content .content {
   position: relative;
