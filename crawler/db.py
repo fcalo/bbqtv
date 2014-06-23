@@ -20,11 +20,11 @@ class DB(object):
 	def save_channel(self, channel_name):
 	
 		collection_name = self.normalize_collection(channel_name)
-		channel = self.db.channels.find_one({"collection" : collection_name})
+		channel = self.db.channels.find_one({"_id" : collection_name})
 		
 		order = channel['order'] if channel else self.db.channels.count()
 		
 		self.db.channels.save({"name" : channel_name, 
-		  "collection" : collection_name,
+		  "_id" : collection_name,
 		  "order" : order})
 	

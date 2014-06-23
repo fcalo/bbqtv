@@ -15,7 +15,10 @@
 				{{ programme['time'] }}
 			</div>
 			<div class="col-md-11">
-				<h2> {{ programme['title'] }} </h2><span class="label label-primary"> {{ programme['category'] }} </span>
+				<h2> {{ programme['title'] }} </h2>
+				{% if programme['category'] %}
+					<span class="label label-primary"> {{ programme['category'] }} </span>
+				{% endif %}
 				<p> {{ programme['description'] }} </p>
 			</div>
 		</div>

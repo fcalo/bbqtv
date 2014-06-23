@@ -3,7 +3,7 @@
 import urllib2
 
 
-def download_url(url):
+def download_url(url, logger = None):
 		
 		req = urllib2.Request(url)
 		
@@ -15,11 +15,17 @@ def download_url(url):
 				resp = urllib2.urlopen(req)
 				downloaded = True
 			except urllib2.URLError as e:
-				self.logger.info("[download_url] Error descargando %s - %s" % (url, str(e)))
+				if logger:
+					logger.info("[download_url] Error descargando %s - %s" % (url, str(e)))
+				else:
+					print ("[download_url] Error descargando %s - %s" % (url, str(e)))
 				if tries > 5:
 					raise
 				else:
-					self.logger.info("[download_url] Reintentando ...")
+					if logger:
+						logger.info("[download_url] Reintentando ...")
+					else:
+						print("[download_url] Reintentando ...")
 				time.sleep(tries)
 			
 		return resp.read()

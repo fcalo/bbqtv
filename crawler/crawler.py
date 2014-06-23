@@ -52,7 +52,7 @@ class Crawler(object):
 		self.logger.info("[run] extrayendo canal de %s" % channel_url)
 		
 		try:
-			self.tree = etree.fromstring(download_url(channel_url), self.parser)
+			self.tree = etree.fromstring(download_url(channel_url, self.logger), self.parser)
 		except AttributeError:
 			return False
 		

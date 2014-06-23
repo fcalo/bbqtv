@@ -19,7 +19,7 @@ class DB(object):
 		if not channel_data:
 			channel_data = {}
 		
-		channel = self.db.channels.find_one({"collection" : collection_name})
+		channel = self.db.channels.find_one({"_id" : collection_name})
 		if channel:
 			channel_data['name'] = channel['name']
 		
