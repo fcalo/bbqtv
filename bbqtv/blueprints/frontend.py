@@ -16,7 +16,7 @@ def index():
 	g.keywords = keywords.lower()
 	g.description = u"Toda la programación de la TV. ¿Que quieres ver hoy? La programación de %s y más" % keywords
 	print channels
-	return render_template('index.html', channels = channels)
+	return render_template('index.html', channels = channels, grid = bbqtv_db.get_grid())
 
 
 @frontend.route('/programacion/<channel_id>')

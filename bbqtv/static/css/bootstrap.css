@@ -5843,6 +5843,46 @@ button.close {
   border-color: #aea79f;
 }
 #main-container #main-content .content .channel-line {
+  clear: both;
+  /*
+					.loop(@index - 1);
+*/
+  /*
+					.loop(@index - 1);
+*/
+  /*
+					.loop(@index - 1);
+*/
+  /*
+					.loop(@index - 1);
+*/
+  /*
+					.loop(@index - 1);
+*/
+  /*
+					.loop(@index - 1);
+*/
+  /*
+					.loop(@index - 1);
+*/
+  /*
+					.loop(@index - 1);
+*/
+  /*
+					.loop(@index - 1);
+*/
+  /*
+					.loop(@index - 1);
+*/
+  /*
+					.loop(@index - 1);
+*/
+  /*
+					.loop(@index - 1);
+*/
+  /*
+					.loop(@index - 1);
+*/
   /*
 					.loop(@index - 1);
 */
@@ -5870,56 +5910,147 @@ button.close {
 }
 #main-container #main-content .content .channel-line .item-channel-l1 {
   float: left;
-  width: 120px;
+  width: 40px;
   height: 100px;
   text-align: center;
   border: 1px solid;
 }
 #main-container #main-content .content .channel-line .item-channel-l2 {
   float: left;
-  width: 240px;
+  width: 80px;
   height: 100px;
   text-align: center;
   border: 1px solid;
 }
 #main-container #main-content .content .channel-line .item-channel-l3 {
   float: left;
-  width: 360px;
+  width: 120px;
   height: 100px;
   text-align: center;
   border: 1px solid;
 }
 #main-container #main-content .content .channel-line .item-channel-l4 {
   float: left;
-  width: 480px;
+  width: 160px;
   height: 100px;
   text-align: center;
   border: 1px solid;
 }
 #main-container #main-content .content .channel-line .item-channel-l5 {
   float: left;
-  width: 600px;
+  width: 200px;
   height: 100px;
   text-align: center;
   border: 1px solid;
 }
 #main-container #main-content .content .channel-line .item-channel-l6 {
   float: left;
-  width: 720px;
+  width: 240px;
   height: 100px;
   text-align: center;
   border: 1px solid;
 }
 #main-container #main-content .content .channel-line .item-channel-l7 {
   float: left;
-  width: 840px;
+  width: 280px;
   height: 100px;
   text-align: center;
   border: 1px solid;
 }
 #main-container #main-content .content .channel-line .item-channel-l8 {
   float: left;
-  width: 960px;
+  width: 320px;
+  height: 100px;
+  text-align: center;
+  border: 1px solid;
+}
+#main-container #main-content .content .channel-line .item-channel-l9 {
+  float: left;
+  width: 360px;
+  height: 100px;
+  text-align: center;
+  border: 1px solid;
+}
+#main-container #main-content .content .channel-line .item-channel-l10 {
+  float: left;
+  width: 400px;
+  height: 100px;
+  text-align: center;
+  border: 1px solid;
+}
+#main-container #main-content .content .channel-line .item-channel-l11 {
+  float: left;
+  width: 440px;
+  height: 100px;
+  text-align: center;
+  border: 1px solid;
+}
+#main-container #main-content .content .channel-line .item-channel-l12 {
+  float: left;
+  width: 480px;
+  height: 100px;
+  text-align: center;
+  border: 1px solid;
+}
+#main-container #main-content .content .channel-line .item-channel-l13 {
+  float: left;
+  width: 520px;
+  height: 100px;
+  text-align: center;
+  border: 1px solid;
+}
+#main-container #main-content .content .channel-line .item-channel-l14 {
+  float: left;
+  width: 560px;
+  height: 100px;
+  text-align: center;
+  border: 1px solid;
+}
+#main-container #main-content .content .channel-line .item-channel-l15 {
+  float: left;
+  width: 600px;
+  height: 100px;
+  text-align: center;
+  border: 1px solid;
+}
+#main-container #main-content .content .channel-line .item-channel-l16 {
+  float: left;
+  width: 640px;
+  height: 100px;
+  text-align: center;
+  border: 1px solid;
+}
+#main-container #main-content .content .channel-line .item-channel-l17 {
+  float: left;
+  width: 680px;
+  height: 100px;
+  text-align: center;
+  border: 1px solid;
+}
+#main-container #main-content .content .channel-line .item-channel-l18 {
+  float: left;
+  width: 720px;
+  height: 100px;
+  text-align: center;
+  border: 1px solid;
+}
+#main-container #main-content .content .channel-line .item-channel-l18 {
+  float: left;
+  width: 720px;
+  height: 100px;
+  text-align: center;
+  border: 1px solid;
+}
+#main-container #main-content .content .channel-line .item-channel-l19 {
+  float: left;
+  width: 760px;
+  height: 100px;
+  text-align: center;
+  border: 1px solid;
+}
+#main-container #main-content .content .channel-line .item-channel-l20 {
+  float: left;
+  width: 800px;
   height: 100px;
   text-align: center;
   border: 1px solid;

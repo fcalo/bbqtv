@@ -9,12 +9,15 @@
 
 	<section id="examples" class="col-md10 snap-scrolling-example">
 		<div id="content-1" class="content horizontal-images">
-			{% for i in " "*5 %}
+			{% for channel in grid %}
 				<div class="channel-line">
-					{% for i in " "*100 %}
-					<div class="item-channel-l1">item programación</div>
-					<div class="item-channel-l2">item programación</div>
-					<div class="item-channel-l2">item programación</div>
+					<div class="item-channel-l6">{{ channel }}</div>
+					{% for programme in grid[channel]['programmes'] %}
+						<div class="item-channel-l{{ programme['duration'] if programme['duration'] > 6 else 6 }}">
+							<div>{{ programme['title'] }}</div>
+							<div>{{ programme['description'] | truncate(20) }}</div>
+							<div>{{ programme['time'] }}</div>
+						</div>
 					{% endfor %}
 				</div>
 			{% endfor %}

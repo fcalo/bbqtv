@@ -46,6 +46,7 @@ class Crawler(object):
 		
 		for channel_url, channel_info in channels.items():
 			self.extract_channel(channel_url, channel_info)
+			
 		
 	def extract_channel(self, channel_url, channel_info, next_day = 0, previous_day = 0 ):
 		
