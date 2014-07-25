@@ -12,4 +12,4 @@ class SEO(object):
 		
 	def get_keywords(self, data):
 		
-		return smart_truncate(", ".join([d['name'] if 'name' in d else d['title'] for d in data]))
+		return smart_truncate(", ".join([d['name'] if 'name' in d else d['title'] if 'title' in d else "" for d in data]))

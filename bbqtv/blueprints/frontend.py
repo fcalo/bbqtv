@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from flask import Blueprint, render_template, g
-from bbqtv.services import bbqtv_db
+from flask import Blueprint, render_template, g, jsonify, request
+from flask.ext.sendmail import Message
+from bbqtv.services import bbqtv_db, mail
 from bbqtv.services import seo
 from datetime import datetime
 import time
@@ -35,3 +36,19 @@ def programacion( channel_id, date = None):
 	  channels = bbqtv_db.get_channels() , \
 	  channel = channel, \
 	  now = not date)
+      
+@frontend.route('/contact', methods=['GET', 'POST'])
+def contact():
+    
+    msg = Message(request.form['subject'],
+       sender=(request.form['name'], request.form['email']),
+       recipients=["to@example.com"],
+       body=request.form['msg'])
+      
+    try:
+        mail.send(msg)
+        return jsonify({"ok":True, "info":"Gracias por su mensaje"})
+    except:
+        return jsonify({"ok":False, "info":"Ocurrio un error. <a href='mailto:%s'>%s</a>" % (g.admin_email, g.admin_email)})
+    
+

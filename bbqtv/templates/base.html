@@ -62,11 +62,60 @@
 			</div>
 		{%- endblock sidebar %}
 		<div id="main-content">
-		{% block content -%}
-		{%- endblock content %}
+            <div id="alert"></div>
+            {% block content -%}
+            {%- endblock content %}
 		</div>
     </div>
     
+    <div aria-hidden="true" aria-labelledby="contact-model-label" role="dialog" tabindex="-1" id="contact-modal" class="modal fade">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+			<h4 id="contact-model-label" class="modal-title">Contacto</h4>
+		  </div>
+		  <div class="modal-body">
+			  <div class="well bs-component">
+              <form class="form-horizontal">
+                <fieldset>
+                  <div class="form-group">
+                    <label class="col-lg-2 control-label" for="name">Nombre</label>
+                    <div class="col-lg-10">
+                      <input type="text" placeholder="Su nombre" id="name" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-2 control-label" for="email">Email</label>
+                    <div class="col-lg-10">
+                      <input type="text" placeholder="Su Email" id="email" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-2 control-label" for="subject">Asunto</label>
+                    <div class="col-lg-10">
+                      <input type="text" placeholder="Sobre qué quiere consultar" id="subject" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-lg-2 control-label" for="msg">Consulta</label>
+                    <div class="col-lg-10">
+                      <textarea placeholder="Su consulta" id="msg" rows="3" class="form-control"></textarea>
+                      
+                    </div>
+                  </div>
+                </fieldset>
+              </form>
+		  </div>
+		  <div class="modal-footer">
+			<span id="resultado"></span>
+			<button data-dismiss="modal" class="btn btn-default" type="button">Cerrar</button>
+			<button id="send_contact" class="btn btn-primary" type="button">Enviar</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	</div>
 
     {% block scripts %}
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
