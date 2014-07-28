@@ -6,9 +6,13 @@
 <div class="container-fluid channel">
 	
 	<div class="row">
-		<div class="col-md-11"><h1>Programación {{ channel['name'] }} {{ "Hoy" if now else channel['date'].strftime('%d/%m/%Y') }}</h1></div>
+		<div class="col-md-11"><h1>Programación {{ channel['name'] }} {{ "Hoy" if now else date.strftime('%d/%m/%Y') }}</h1></div>
 	</div>
 
+    <div class="row">
+        <div class="pull-left"><a href="{{ data_prev['link'] }}"><span class="glyphicon glyphicon-chevron-left"></span> Programación del {{ data_prev['day_of_week'] }} {{ data_prev['day'] }} de {{ data_prev['month'] }}</a></div>
+        <div class="pull-right"><a href="{{ data_next['link'] }}">Programación del {{ data_next['day_of_week'] }} {{ data_next['day'] }} de {{ data_next['month'] }} <span class="glyphicon glyphicon-chevron-right"></span> </a></div>
+    </div>
 	{% for programme in channel['programmes'] %}
 		<div class="row channel-item">
 			<div class="col-md-1">

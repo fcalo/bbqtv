@@ -4,25 +4,23 @@
 {% endblock %}
 {% block content %}
 <div class="container-fluid">
-  <h1>Programación TV hoy</h1>
+  <h1>Programación TV Ahora</h1>
 
 
-	<section id="examples" class="col-md10 snap-scrolling-example">
-		<div id="content-1" class="content horizontal-images">
-			{% for channel in grid %}
-				<div class="channel-line">
-					<div class="item-channel-l6">{{ channel }}</div>
-					{% for programme in grid[channel]['programmes'] %}
-						<div class="item-channel-l{{ programme['duration'] if programme['duration'] > 6 else 6 }}">
-							<div>{{ programme['title'] }}</div>
-							<div>{{ programme['description'] | truncate(20) }}</div>
-							<div>{{ programme['time'] }}</div>
-						</div>
-					{% endfor %}
-				</div>
-			{% endfor %}
-		</div>
-		
+	<section id="now">
+		{% for channel in now %}
+            <div>
+                <div><h2>{{ channel }}</h2></div>
+                <div class="clearfix"></div>
+                {% for w in now[channel] %}
+                <div class="{{ w }}">
+                    <div>{{ now[channel][w]['title'] }}</div>
+                    <div>{{ now[channel][w]['description'] }}</div>
+                    <div>{{ now[channel][w]['time'] }}</div>
+                </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
 	</section>
 
 </div>
